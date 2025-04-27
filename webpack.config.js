@@ -47,4 +47,26 @@ const rendererConfig = {
   },
 };
 
-module.exports = [mainConfig, rendererConfig]; 
+const preloadConfig = {
+  mode: 'development',
+  target: 'electron-preload',
+  entry: './src/preload.ts',
+  output: {
+    filename: 'preload.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+};
+
+module.exports = [mainConfig, rendererConfig, preloadConfig]; 

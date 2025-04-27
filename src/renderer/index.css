@@ -1,16 +1,47 @@
+@import url('~@vscode/codicons/dist/codicon.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --vscode-bg: #1e1e1e;
+  --vscode-sidebar-bg: #2c2c32;
+  --vscode-activitybar-bg: #23232b;
+  --vscode-activitybar-active: #3794ff;
+  --vscode-border: #333333;
+  --vscode-tab-bg: #2d2d2d;
+  --vscode-tab-active-bg: #1e1e1e;
+  --vscode-tab-active-border: #3794ff;
+  --vscode-statusbar-bg: #007acc;
+  --vscode-statusbar-fg: #fff;
+  --vscode-font: 'Segoe UI', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--vscode-font);
+  background: var(--vscode-bg);
+  color: #d4d4d4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
   height: 100vh;
+}
+
+.codicon {
+  font-family: 'codicon' !important;
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 } 

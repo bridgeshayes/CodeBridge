@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { diffLines } from 'diff';
-import simpleGit from 'simple-git';
+// import simpleGit from 'simple-git';
 
-const GitPanel: React.FC = () => {
+interface GitPanelProps {
+  repoPath: string | null;
+}
+
+const GitPanel: React.FC<GitPanelProps> = ({ repoPath }) => {
   const [status, setStatus] = useState<any>(null);
   const [diff, setDiff] = useState<string>('');
   const [currentFile, setCurrentFile] = useState<string>('');
 
   useEffect(() => {
-    const git = simpleGit();
-    updateGitStatus();
-  }, []);
+    if (repoPath) {
+      updateGitStatus();
+    }
+    // eslint-disable-next-line
+  }, [repoPath]);
 
   const updateGitStatus = async () => {
+    if (!repoPath) return;
     try {
-      const git = simpleGit();
-      const status = await git.status();
+      const status = await (window as any).electron.gitStatus(repoPath);
       setStatus(status);
     } catch (error) {
       console.error('Error getting git status:', error);
@@ -23,9 +29,9 @@ const GitPanel: React.FC = () => {
   };
 
   const showDiff = async (file: string) => {
+    if (!repoPath) return;
     try {
-      const git = simpleGit();
-      const diffResult = await git.diff(['HEAD', file]);
+      const diffResult = await (window as any).electron.gitDiff(repoPath, file);
       setDiff(diffResult);
       setCurrentFile(file);
     } catch (error) {
