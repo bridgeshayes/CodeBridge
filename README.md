@@ -22,8 +22,8 @@
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/codebridge.git
-cd codebridge
+git clone https://github.com/bridgeshayes/CodeBridge.git
+cd CodeBridge
 ```
 
 2. Install dependencies:
