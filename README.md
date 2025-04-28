@@ -1,11 +1,5 @@
 # CodeBridge
 
-<div align="center">
-  <img src="docs/logo.png" alt="CodeBridge Logo" width="200"/>
-  <h3>A Modern, Collaborative Code Editor</h3>
-  <p>Built with Electron, React, and TypeScript</p>
-</div>
-
 ## ✨ Features
 
 - 🎨 **Modern Interface** - Clean, intuitive design inspired by modern IDEs
